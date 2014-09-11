@@ -102,7 +102,7 @@ module ReVIEW
       @chaps_fnames = Hash.new{|h, key| h[key] = ""}
       @compile_errors = nil
 
-      ReVIEW::Book.load(@basedir).parts.each do |part|
+      ReVIEW::Book.load(@basedir, config).parts.each do |part|
         if part.name.present?
           if part.file?
             output_parts(part.name, config)

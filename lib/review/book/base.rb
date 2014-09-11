@@ -29,9 +29,9 @@ module ReVIEW
         end
       end
 
-      def self.load(dir)
+      def self.load(dir, config=nil)
         update_rubyenv dir
-        new(dir)
+        new(dir, config)
       end
 
       @basedir_seen = {}
@@ -48,11 +48,12 @@ module ReVIEW
         @basedir_seen[dir] = true
       end
 
-      def initialize(basedir)
+      def initialize(basedir, config=nil)
+        config ||= ReVIEW::Configure.values
         @basedir = basedir
         @parts = nil
         @chapter_index = nil
-        @config = ReVIEW::Configure.values
+        @config = config
         @catalog = nil
       end
 

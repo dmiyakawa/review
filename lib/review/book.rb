@@ -34,8 +34,8 @@ module ReVIEW
       Base.load_default
     end
 
-    def self.load(dir)
-      Base.load dir
+    def self.load(dir, config=nil)
+      Base.load dir, config
     end
 
     def self.update_rubyenv(dir)
